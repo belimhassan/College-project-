@@ -552,7 +552,7 @@ function addTask() {
     startTaskTimer(newTask.id, duration);
 }
     
-}
+
 
 
 if (addTaskBtn) {
@@ -772,12 +772,12 @@ if (
 ) {
     runTaskTimer(task.id);
 }
-            );
 
         }
     );
 
 }
+            
 
 
 // ==========================================
