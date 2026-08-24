@@ -530,17 +530,26 @@ function addTask() {
 
     let tasks =
         getTasks();
+  let durationSelect =
+    document.getElementById("taskDuration");
 
+let duration = durationSelect
+    ? Number(durationSelect.value)
+    : 5;
 
-    let newTask = {
+let newTask = {
 
-        id: Date.now(),
+    id: Date.now(),
 
-        text: taskText,
+    text: taskText,
 
-        completed: false
+    completed: false,
 
-    };
+    duration: duration
+
+};
+
+   
 
 
     tasks.push(newTask);
@@ -553,6 +562,7 @@ function addTask() {
 
 
     displayTasks();
+    startTaskTimer(newTask.id);
 
 }
 
@@ -743,21 +753,53 @@ function displayTasks() {
             buttons.appendChild(
                 deleteButton
             );
+    li.appendChild(
+    leftSide
+);
 
 
-            li.appendChild(
-                leftSide
-            );
+let timerElement =
+    document.createElement("span");
 
 
-            li.appendChild(
-                buttons
-            );
+timerElement.id =
+    "timer-" + task.id;
 
 
-            taskList.appendChild(
-                li
-            );
+timerElement.className =
+    "task-timer";
+
+
+timerElement.textContent =
+    "Starting...";
+
+
+li.appendChild(
+    timerElement
+);
+
+
+li.appendChild(
+    buttons
+);
+
+
+taskList.appendChild(
+    li
+);
+
+
+if (
+    localStorage.getItem(
+        "taskTimer_" + task.id
+    )
+) {
+
+    runTaskTimer(
+        task.id
+    );
+
+}
 
         }
     );
@@ -900,3 +942,195 @@ function deleteTask(id) {
 // ==========================================
 
 displayTasks();
+
+// ==========================================
+// TASK TIMER
+// ==========================================
+
+let timerIntervals = {};
+
+
+function startTaskTimer(taskId) {
+
+    let tasks = getTasks();
+
+
+    let task = tasks.find(
+        function(item) {
+
+            return item.id === taskId;
+
+        }
+    );
+
+
+    if (!task) {
+        return;
+    }
+
+
+    let duration =
+        Number(task.duration || 5);
+
+
+    let endTime =
+        Date.now() +
+        (duration * 60 * 1000);
+
+
+    localStorage.setItem(
+        "taskTimer_" + taskId,
+        endTime
+    );
+
+
+    runTaskTimer(
+        taskId
+    );
+
+}
+
+
+function runTaskTimer(taskId) {
+
+    if (timerIntervals[taskId]) {
+
+        clearInterval(
+            timerIntervals[taskId]
+        );
+
+    }
+
+
+    function updateTimer() {
+
+        let endTime =
+            Number(
+                localStorage.getItem(
+                    "taskTimer_" + taskId
+                )
+            );
+
+
+        if (!endTime) {
+            return;
+        }
+
+
+        let remaining =
+            endTime - Date.now();
+
+
+        let timerElement =
+            document.getElementById(
+                "timer-" + taskId
+            );
+
+
+        if (remaining <= 0) {
+
+            if (timerElement) {
+
+                timerElement.textContent =
+                    "⏰ Your time is over!";
+
+            }
+
+
+            clearInterval(
+                timerIntervals[taskId]
+            );
+
+
+            localStorage.removeItem(
+                "taskTimer_" + taskId
+            );
+
+
+            if (
+                "Notification" in window &&
+                Notification.permission === "granted"
+            ) {
+
+                new Notification(
+                    "TaskFlow",
+                    {
+                        body:
+                            "⏰ Your time is over!"
+                    }
+                );
+
+            } else {
+
+                alert(
+                    "⏰ Your time is over!"
+                );
+
+            }
+
+
+            return;
+        }
+
+
+        let totalSeconds =
+            Math.floor(
+                remaining / 1000
+            );
+
+
+        let hours =
+            Math.floor(
+                totalSeconds / 3600
+            );
+
+
+        let minutes =
+            Math.floor(
+                (totalSeconds % 3600) / 60
+            );
+
+
+        let seconds =
+            totalSeconds % 60;
+
+
+        let timeText;
+
+
+        if (hours > 0) {
+
+            timeText =
+                hours + "h " +
+                minutes + "m " +
+                seconds + "s";
+
+        } else {
+
+            timeText =
+                minutes + "m " +
+                seconds + "s";
+
+        }
+
+
+        if (timerElement) {
+
+            timerElement.textContent =
+                "⏱️ " + timeText;
+
+        }
+
+    }
+
+
+    updateTimer();
+
+
+    timerIntervals[taskId] =
+        setInterval(
+            updateTimer,
+            1000
+        );
+
+}
