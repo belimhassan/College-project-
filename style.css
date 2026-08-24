@@ -1,5 +1,5 @@
 /* =========================================
-   TASKFLOW - DARK NEON DASHBOARD
+   TASKFLOW - DARK NEON THEME
    ========================================= */
 
 * {
@@ -15,56 +15,60 @@ body {
 
 body {
     min-height: 100vh;
+    padding: 30px 15px;
+
     font-family: Arial, Helvetica, sans-serif;
+
     color: #ffffff;
 
     background:
-        radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.12), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(170, 0, 255, 0.14), transparent 30%),
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 255, 255, 0.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(255, 0, 200, 0.14),
+            transparent 30%
+        ),
         #050510;
 
     overflow-x: hidden;
 }
 
+
 /* =========================================
-   DASHBOARD MAIN BOX
+   MAIN DASHBOARD
    ========================================= */
 
 .dashboard {
-    width: 92%;
+    width: 100%;
     max-width: 1000px;
 
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 30px;
 
-    background: rgba(10, 10, 25, 0.88);
+    background: rgba(8, 8, 25, 0.94);
 
     border: 1px solid #00f7ff;
     border-radius: 18px;
 
     box-shadow:
         0 0 10px rgba(0, 247, 255, 0.45),
-        0 0 30px rgba(0, 247, 255, 0.15),
-        inset 0 0 25px rgba(0, 247, 255, 0.04);
+        0 0 35px rgba(0, 247, 255, 0.12),
+        inset 0 0 30px rgba(0, 247, 255, 0.03);
 }
+
 
 /* =========================================
-   HEADER
+   TITLE
    ========================================= */
 
-.dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.dashboard h1 {
+    margin: 0 0 10px;
 
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.dashboard-header h1 {
-    margin: 0;
-
-    font-size: 32px;
+    font-size: 34px;
 
     color: #00f7ff;
 
@@ -73,176 +77,228 @@ body {
         0 0 15px rgba(0, 247, 255, 0.7);
 }
 
-.welcome {
-    margin-top: 8px;
 
-    color: #aaaaca;
-    font-size: 15px;
+/* =========================================
+   WELCOME
+   ========================================= */
+
+#welcomeMessage {
+    margin: 0 0 18px;
+
+    color: #b8b8d0;
+
+    font-size: 16px;
 }
+
 
 /* =========================================
    LOGOUT
    ========================================= */
 
-.logout-btn {
+#logoutBtn {
     padding: 10px 20px;
 
-    border: 1px solid #ff2bd6;
+    background: transparent;
+
+    color: #ff35d0;
+
+    border: 1px solid #ff35d0;
     border-radius: 8px;
 
-    background: transparent;
-    color: #ff2bd6;
-
     font-weight: bold;
+
     cursor: pointer;
 
-    transition: 0.25s;
+    transition: 0.25s ease;
 }
 
-.logout-btn:hover {
-    background: #ff2bd6;
+#logoutBtn:hover {
+    background: #ff35d0;
     color: #080810;
 
     box-shadow:
-        0 0 8px #ff2bd6,
-        0 0 20px rgba(255, 43, 214, 0.6);
+        0 0 10px #ff35d0,
+        0 0 25px rgba(255, 53, 208, 0.55);
 }
 
+
 /* =========================================
-   DIVIDER
+   LINE
    ========================================= */
 
 .dashboard hr {
-    border: none;
-
     height: 1px;
 
-    background: linear-gradient(
-        to right,
-        transparent,
-        #00f7ff,
-        transparent
-    );
+    margin: 28px 0;
 
-    margin: 25px 0;
+    border: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #00f7ff,
+            #ff35d0,
+            transparent
+        );
 }
 
+
 /* =========================================
-   TASK TITLE
+   TASK HEADING
    ========================================= */
 
-.tasks-title {
+.dashboard h2 {
+    margin-bottom: 18px;
+
     color: #ffffff;
 
     text-shadow:
-        0 0 6px rgba(255, 255, 255, 0.4);
+        0 0 8px rgba(255, 255, 255, 0.35);
 }
 
+
 /* =========================================
-   TASK INPUT AREA
+   INPUT AREA
    ========================================= */
+
+.task-input {
+    width: 100%;
+}
 
 .task-input-area {
     display: flex;
+
     align-items: center;
 
     gap: 10px;
 
-    margin-bottom: 25px;
+    width: 100%;
 }
 
-.task-input-area input[type="text"] {
+
+/* =========================================
+   TEXT INPUT
+   ========================================= */
+
+#taskInput {
     flex: 1;
 
     min-width: 0;
 
     padding: 13px 15px;
 
+    background: #0b0b19;
+
+    color: #ffffff;
+
     border: 1px solid #00f7ff;
     border-radius: 8px;
 
     outline: none;
 
-    background: #0b0b18;
-    color: #ffffff;
+    font-size: 15px;
 
     box-shadow:
-        inset 0 0 8px rgba(0, 247, 255, 0.08);
+        inset 0 0 10px rgba(0, 247, 255, 0.04);
+
+    transition: 0.25s;
 }
 
-.task-input-area input[type="text"]::placeholder {
+#taskInput::placeholder {
     color: #77778f;
 }
 
-.task-input-area input[type="text"]:focus {
+#taskInput:focus {
     box-shadow:
-        0 0 8px rgba(0, 247, 255, 0.4),
-        inset 0 0 8px rgba(0, 247, 255, 0.08);
+        0 0 10px rgba(0, 247, 255, 0.35),
+        inset 0 0 10px rgba(0, 247, 255, 0.06);
 }
 
+
 /* =========================================
-   DURATION SELECT
+   DURATION
    ========================================= */
 
-.task-input-area select {
+#taskDuration {
     padding: 13px 12px;
 
-    border: 1px solid #9d4edd;
+    background: #0b0b19;
+
+    color: #ffffff;
+
+    border: 1px solid #a855f7;
     border-radius: 8px;
 
     outline: none;
 
-    background: #0b0b18;
-    color: #ffffff;
-
     cursor: pointer;
+
+    font-size: 14px;
+
+    transition: 0.25s;
 }
 
-.task-input-area select:focus {
+#taskDuration:hover,
+#taskDuration:focus {
+    border-color: #ff35d0;
+
     box-shadow:
-        0 0 10px rgba(157, 78, 221, 0.6);
+        0 0 10px rgba(168, 85, 247, 0.45);
 }
+
+#taskDuration option {
+    background: #0b0b19;
+    color: #ffffff;
+}
+
 
 /* =========================================
-   ADD TASK BUTTON
+   ADD TASK
    ========================================= */
 
 .add-task-btn {
     padding: 13px 22px;
 
+    background: #00f7ff;
+
+    color: #050510;
+
     border: 1px solid #00f7ff;
     border-radius: 8px;
-
-    background: #00f7ff;
-    color: #050510;
 
     font-weight: bold;
 
     cursor: pointer;
 
-    transition: 0.25s;
+    white-space: nowrap;
+
+    transition: 0.25s ease;
 }
 
 .add-task-btn:hover {
     background: #00ffff;
 
-    box-shadow:
-        0 0 8px #00f7ff,
-        0 0 20px rgba(0, 247, 255, 0.7);
-
     transform: translateY(-1px);
+
+    box-shadow:
+        0 0 10px #00f7ff,
+        0 0 25px rgba(0, 247, 255, 0.55);
 }
+
 
 /* =========================================
    TASK LIST
    ========================================= */
 
 #taskList {
-    list-style: none;
+    margin: 25px 0 0;
 
     padding: 0;
-    margin: 0;
+
+    list-style: none;
 }
+
 
 /* =========================================
    TASK CARD
@@ -250,44 +306,74 @@ body {
 
 #taskList li {
     display: flex;
+
     align-items: center;
-    justify-content: space-between;
 
     gap: 15px;
 
-    margin-bottom: 14px;
-    padding: 17px;
+    width: 100%;
 
-    background: rgba(12, 12, 30, 0.9);
+    margin-bottom: 14px;
+
+    padding: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(12, 12, 35, 0.96),
+            rgba(17, 8, 30, 0.96)
+        );
 
     border: 1px solid rgba(0, 247, 255, 0.35);
+
     border-radius: 12px;
 
     box-shadow:
-        0 0 8px rgba(0, 247, 255, 0.08);
+        0 0 10px rgba(0, 247, 255, 0.06);
 
-    transition: 0.25s;
+    transition: 0.25s ease;
 }
 
 #taskList li:hover {
     border-color: #00f7ff;
 
     box-shadow:
-        0 0 10px rgba(0, 247, 255, 0.25);
+        0 0 12px rgba(0, 247, 255, 0.25);
 }
+
 
 /* =========================================
-   TASK LEFT SIDE
+   TIMER
    ========================================= */
 
-#taskList li > div:first-child {
-    display: flex;
-    align-items: center;
+.task-timer {
+    padding: 7px 12px;
 
-    gap: 10px;
+    color: #00f7ff;
 
-    min-width: 0;
+    background: rgba(0, 247, 255, 0.05);
+
+    border: 1px solid #00f7ff;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 6px #00f7ff;
+
+    box-shadow:
+        0 0 8px rgba(0, 247, 255, 0.12);
 }
+
+
+/* =========================================
+   CHECKBOX
+   ========================================= */
 
 #taskList input[type="checkbox"] {
     width: 18px;
@@ -298,112 +384,74 @@ body {
     cursor: pointer;
 }
 
+
+/* =========================================
+   TASK TEXT
+   ========================================= */
+
 #taskList span {
     color: #ffffff;
 
     word-break: break-word;
 }
 
-/* =========================================
-   COMPLETED TASK
-   ========================================= */
-
-#taskList li.completed {
-    opacity: 0.55;
-
-    border-color: #55556b;
-}
-
-#taskList li.completed span {
-    text-decoration: line-through;
-    color: #77778f;
-}
 
 /* =========================================
-   TIMER
+   EDIT / DELETE BUTTONS
    ========================================= */
 
-.task-timer {
-    margin-left: auto;
-
+#taskList button {
     padding: 7px 12px;
 
-    border: 1px solid #00f7ff;
-    border-radius: 7px;
+    border-radius: 6px;
 
-    background: rgba(0, 247, 255, 0.06);
-
-    color: #00f7ff;
-
-    font-size: 14px;
     font-weight: bold;
 
-    white-space: nowrap;
-
-    text-shadow:
-        0 0 5px #00f7ff;
-
-    box-shadow:
-        0 0 8px rgba(0, 247, 255, 0.15);
-}
-
-/* =========================================
-   BUTTON AREA
-   ========================================= */
-
-.task-buttons {
-    display: flex;
-
-    gap: 7px;
-}
-
-/* =========================================
-   EDIT BUTTON
-   ========================================= */
-
-.edit-btn {
-    padding: 8px 13px;
-
-    border: 1px solid #9d4edd;
-    border-radius: 6px;
-
-    background: transparent;
-    color: #c77dff;
-
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
-.edit-btn:hover {
-    background: #9d4edd;
-    color: white;
+
+/* Edit */
+
+#taskList button:first-of-type {
+    background: transparent;
+
+    color: #b76cff;
+
+    border: 1px solid #a855f7;
+}
+
+#taskList button:first-of-type:hover {
+    background: #a855f7;
+
+    color: #ffffff;
 
     box-shadow:
-        0 0 10px rgba(157, 78, 221, 0.7);
+        0 0 10px rgba(168, 85, 247, 0.65);
 }
 
-/* =========================================
-   DELETE BUTTON
-   ========================================= */
 
-.delete-btn {
-    padding: 8px 13px;
+/* Delete */
 
-    border: 1px solid #ff3864;
-    border-radius: 6px;
-
+#taskList button:last-of-type {
     background: transparent;
+
     color: #ff3864;
 
-    cursor: pointer;
+    border: 1px solid #ff3864;
 }
 
-.delete-btn:hover {
+#taskList button:last-of-type:hover {
     background: #ff3864;
-    color: white;
+
+    color: #ffffff;
 
     box-shadow:
-        0 0 10px rgba(255, 56, 100, 0.7);
+        0 0 10px rgba(255, 56, 100, 0.65);
 }
+
 
 /* =========================================
    MOBILE
@@ -411,61 +459,48 @@ body {
 
 @media (max-width: 700px) {
 
-    .dashboard {
-        width: calc(100% - 20px);
+    body {
+        padding: 10px;
+    }
 
-        margin: 10px auto;
-        padding: 18px;
+    .dashboard {
+        width: 100%;
+
+        padding: 20px 15px;
 
         border-radius: 14px;
     }
 
-    .dashboard-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .dashboard-header h1 {
-        font-size: 26px;
-    }
-
-    .logout-btn {
-        width: 100%;
+    .dashboard h1 {
+        font-size: 27px;
     }
 
     .task-input-area {
         flex-direction: column;
+
         align-items: stretch;
     }
 
-    .task-input-area input[type="text"],
-    .task-input-area select,
+    #taskInput,
+    #taskDuration,
     .add-task-btn {
         width: 100%;
     }
 
     #taskList li {
-        flex-direction: column;
-        align-items: stretch;
-    }
+        flex-wrap: wrap;
 
-    #taskList li > div:first-child {
-        width: 100%;
+        align-items: flex-start;
     }
 
     .task-timer {
         width: 100%;
-        margin-left: 0;
 
         text-align: center;
     }
 
-    .task-buttons {
-        width: 100%;
-    }
-
-    .edit-btn,
-    .delete-btn {
+    #taskList button {
         flex: 1;
     }
+
 }
