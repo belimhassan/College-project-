@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register Form</title>
+    <style>
+      h1 {
+        color: black;
+        text-align: center;
+      }
+      input[type="submit"] {
+        width: 95%;
+        padding: 5px;
+        background: linear-gradient(to right, rgb(0, 195, 255), purple);
+        color: white;
+        border-radius: 2px;
+        cursor: pointer;
+        border: none;
+      }
+      label {
+        display: block;
+        margin-left: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 90%;
+        padding: 8px;
+        margin: 5px 0 15px 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      div {
+        color: black;
+        width: 300px;
+        border: 3px solid black;
+        padding: 30px;
+        margin: 50px auto;
+        background-color: white;
+        border-radius: 10px;
+      }
+      h2 {
+        text-align: center;
+        color: darkblue;
+      }
+      body {
+        background: white;
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="registerForm">
+      <div>
+        <h1>Register Now</h1>
+
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+
+        <label>Username:</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+
+        <label>Password:</label>
+        <input type="password" id="password" placeholder="Enter your password" maxlength="8" required>
+
+        <label>Confirm Password:</label>
+        <input type="password" id="confirm" placeholder="Enter your password again" maxlength="8" required>
+
+        <input type="submit" value="Sign up">
+        <h2>
+          <label>Already have an account?</label>
+          <a href="index.html">Login</a>
+        </h2>
+      </div>
+    </form>
+
+    <script src="script.js">
+      
+    </script>
+  </body>
+</html>
