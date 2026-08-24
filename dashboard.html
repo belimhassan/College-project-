@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,15 +30,29 @@
 
         <div class="task-input">
 
-            <input
-                type="text"
-                id="taskInput"
-                placeholder="Enter your task"
-            >
+           <div class="task-input-area">
 
-            <button id="addTaskBtn">
-                Add Task
-            </button>
+    <input
+        type="text"
+        id="taskInput"
+        placeholder="Enter your task"
+    >
+
+    <select id="taskDuration">
+        <option value="15">15 Minutes</option>
+        <option value="30">30 Minutes</option>
+        <option value="60" selected>1 Hour</option>
+        <option value="120">2 Hours</option>
+    </select>
+
+    <button
+        type="button"
+        id="addTaskBtn"
+        class="add-task-btn"
+    >
+        Add Task
+</button>
+
 
         </div>
 
