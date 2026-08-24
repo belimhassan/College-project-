@@ -510,55 +510,48 @@ let taskList =
     document.getElementById(
         "taskList"
     );
-
-
 function addTask() {
 
     if (!taskInput) {
         return;
     }
 
-
-    let taskText =
-        taskInput.value.trim();
-
+    let taskText = taskInput.value.trim();
 
     if (taskText === "") {
-
-        alert(
-            "Please enter a task."
-        );
-
+        alert("Please enter a task.");
         return;
     }
 
+    let durationSelect =
+        document.getElementById("taskDuration");
 
-    let tasks =
-        getTasks();
+    let duration =
+        durationSelect
+            ? Number(durationSelect.value)
+            : 60;
 
+    let tasks = getTasks();
 
     let newTask = {
-
         id: Date.now(),
-
         text: taskText,
-
-        completed: false
-
+        completed: false,
+        duration: duration
     };
-
 
     tasks.push(newTask);
 
-
     saveTasks(tasks);
-
 
     taskInput.value = "";
 
-
     displayTasks();
 
+    // Start timer automatically
+    startTaskTimer(newTask.id, duration);
+}
+    
 }
 
 
@@ -750,18 +743,35 @@ function displayTasks() {
             );
 
 
-            li.appendChild(
-                leftSide
-            );
+           li.appendChild(leftSide);
 
+// Timer display
+let timerElement =
+    document.createElement("div");
 
-            li.appendChild(
-                buttons
-            );
+timerElement.id =
+    "timer-" + task.id;
 
+timerElement.className =
+    "task-timer";
 
-            taskList.appendChild(
-                li
+timerElement.textContent =
+    "Timer not started";
+
+li.appendChild(timerElement);
+
+li.appendChild(buttons);
+
+taskList.appendChild(li);
+
+// Continue timer after refresh
+if (
+    localStorage.getItem(
+        "taskTimer_" + task.id
+    )
+) {
+    runTaskTimer(task.id);
+}
             );
 
         }
