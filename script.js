@@ -1045,7 +1045,8 @@ function runTaskTimer(taskId) {
             localStorage.removeItem(
                 "taskTimer_" + taskId
             );
-          
+              // 🔊 Play sound
+    playTimeOverSound();
 
             if (
                 "Notification" in window &&
@@ -1140,4 +1141,46 @@ if (
     Notification.permission === "default"
 ) {
     Notification.requestPermission();
+}
+// ==========================================
+// NOTIFICATION SOUND
+// ==========================================
+
+function playTimeOverSound() {
+
+    const audioContext =
+        new (window.AudioContext ||
+        window.webkitAudioContext)();
+
+    const oscillator =
+        audioContext.createOscillator();
+
+    const gain =
+        audioContext.createGain();
+
+    oscillator.connect(gain);
+
+    gain.connect(
+        audioContext.destination
+    );
+
+    oscillator.frequency.value = 880;
+
+    oscillator.type = "sine";
+
+    gain.gain.setValueAtTime(
+        0.3,
+        audioContext.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.01,
+        audioContext.currentTime + 1
+    );
+
+    oscillator.start();
+
+    oscillator.stop(
+        audioContext.currentTime + 1
+    );
 }
