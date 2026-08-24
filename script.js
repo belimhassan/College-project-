@@ -900,3 +900,96 @@ function deleteTask(id) {
 // ==========================================
 
 displayTasks();
+// ==========================================
+// TASK TIMER
+// ==========================================
+
+function startTaskTimer(taskId, durationMinutes) {
+
+    const endTime =
+        Date.now() + (durationMinutes * 60 * 1000);
+
+    localStorage.setItem(
+        "taskTimer_" + taskId,
+        endTime
+    );
+
+    runTaskTimer(taskId);
+}
+
+
+function runTaskTimer(taskId) {
+
+    const timerElement =
+        document.getElementById("timer-" + taskId);
+
+    if (!timerElement) {
+        return;
+    }
+
+    const savedEndTime =
+        localStorage.getItem("taskTimer_" + taskId);
+
+    if (!savedEndTime) {
+        timerElement.textContent =
+            "Timer not started";
+        return;
+    }
+
+    const endTime =
+        Number(savedEndTime);
+
+
+    function updateTimer() {
+
+        const remaining =
+            endTime - Date.now();
+
+
+        if (remaining <= 0) {
+
+            timerElement.textContent =
+                "⏰ Your time is over!";
+
+            localStorage.removeItem(
+                "taskTimer_" + taskId
+            );
+
+            alert("⏰ Your time is over!");
+
+            clearInterval(timerInterval);
+
+            return;
+        }
+
+
+        const totalSeconds =
+            Math.floor(remaining / 1000);
+
+        const hours =
+            Math.floor(totalSeconds / 3600);
+
+        const minutes =
+            Math.floor(
+                (totalSeconds % 3600) / 60
+            );
+
+        const seconds =
+            totalSeconds % 60;
+
+
+        timerElement.textContent =
+            "⏱ " +
+            String(hours).padStart(2, "0") +
+            ":" +
+            String(minutes).padStart(2, "0") +
+            ":" +
+            String(seconds).padStart(2, "0");
+    }
+
+
+    updateTimer();
+
+    const timerInterval =
+        setInterval(updateTimer, 1000);
+}
