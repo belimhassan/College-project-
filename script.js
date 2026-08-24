@@ -1040,12 +1040,12 @@ function runTaskTimer(taskId) {
             clearInterval(
                 timerIntervals[taskId]
             );
-
+            
 
             localStorage.removeItem(
                 "taskTimer_" + taskId
             );
-
+          
 
             if (
                 "Notification" in window &&
@@ -1056,7 +1056,8 @@ function runTaskTimer(taskId) {
                     "TaskFlow",
                     {
                         body:
-                            "⏰ Your time is over!"
+                            "⏰ Your time is over!",
+                        requireInteraction: true
                     }
                 );
 
@@ -1133,4 +1134,10 @@ function runTaskTimer(taskId) {
             1000
         );
 
+}
+if (
+    "Notification" in window &&
+    Notification.permission === "default"
+) {
+    Notification.requestPermission();
 }
