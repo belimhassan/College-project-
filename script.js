@@ -670,6 +670,8 @@ function displayTasks() {
                     toggleTask(
                         task.id
                     );
+                    displayTasks();
+                    updateTaskStats();
 
                 }
             );
@@ -942,6 +944,7 @@ function deleteTask(id) {
 // ==========================================
 
 displayTasks();
+updateTaskStats();
 
 // ==========================================
 // TASK TIMER
@@ -1184,3 +1187,68 @@ function playTimeOverSound() {
         audioContext.currentTime + 1
     );
 }
+// ==========================================
+// PRODUCTIVITY STATS
+// ==========================================
+
+function updateTaskStats() {
+
+    let tasks = getTasks();
+
+    let total =
+        tasks.length;
+
+    let completed =
+        tasks.filter(function(task) {
+            return task.completed;
+        }).length;
+
+    let pending =
+        total - completed;
+
+    let progress = 0;
+
+    if (total > 0) {
+        progress =
+            Math.round(
+                (completed / total) * 100
+            );
+    }
+
+    let totalElement =
+        document.getElementById("totalTasks");
+
+    let completedElement =
+        document.getElementById("completedTasks");
+
+    let pendingElement =
+        document.getElementById("pendingTasks");
+
+    let progressElement =
+        document.getElementById("taskProgress");
+
+
+    if (totalElement) {
+        totalElement.textContent =
+            total;
+    }
+
+    if (completedElement) {
+        completedElement.textContent =
+            completed;
+    }
+
+    if (pendingElement) {
+        pendingElement.textContent =
+            pending;
+    }
+
+    if (progressElement) {
+        progressElement.textContent =
+            progress + "%";
+    }
+}
+
+
+// Update stats when dashboard loads
+updateTaskStats();
