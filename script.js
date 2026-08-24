@@ -1,6 +1,8 @@
 // Browser notification permission
 if ("Notification" in window) {
-    Notification.requestPermission();
+    Notification.requestPermission().then(function(permission) {
+        console.log("Notification permission:", permission);
+    });
 }
 function getUsers() {
 
