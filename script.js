@@ -1,4 +1,7 @@
-
+// Browser notification permission
+if ("Notification" in window) {
+    Notification.requestPermission();
+}
 function getUsers() {
 
     let data = localStorage.getItem("users");
@@ -954,8 +957,17 @@ function runTaskTimer(taskId) {
             localStorage.removeItem(
                 "taskTimer_" + taskId
             );
+            if ("Notification" in window) {
 
-            alert("⏰ Your time is over!");
+    if (Notification.permission === "granted") {
+
+        new Notification("TaskFlow", {
+            body: "Your time is over!"
+        });
+
+    }
+}
+            
 
             clearInterval(timerInterval);
 
