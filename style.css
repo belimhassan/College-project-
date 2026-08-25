@@ -595,3 +595,33 @@ body {
 
     opacity: 0.9;
 }
+/* =========================================
+   DUE DATE
+   ========================================= */
+
+#taskDueDate {
+    padding: 13px 12px;
+
+    background: #0b0b19;
+    color: white;
+
+    border: 1px solid #00f7ff;
+    border-radius: 8px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+#taskDueDate:focus {
+    box-shadow:
+        0 0 10px rgba(0, 247, 255, 0.4);
+}
+
+.task-due-date {
+    margin-left: 8px;
+
+    color: #00f7ff;
+
+    font-size: 12px;
+}
