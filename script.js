@@ -557,6 +557,9 @@ let newTask = {
 
     priority: priority
 
+    dueDate:
+    document.getElementById("taskDueDate").value
+
 };
 
 
@@ -713,6 +716,21 @@ priority.className =
 leftSide.appendChild(
     priority
 );
+            let dueDate =
+    document.createElement("small");
+
+if (task.dueDate) {
+
+    dueDate.textContent =
+        " 📅 " + task.dueDate;
+
+    dueDate.className =
+        "task-due-date";
+
+    leftSide.appendChild(
+        dueDate
+    );
+}
 
             leftSide.appendChild(
                 checkbox
