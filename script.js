@@ -555,7 +555,7 @@ let newTask = {
 
     duration: duration,
 
-    priority: priority
+    priority: priority,
 
     dueDate:
     document.getElementById("taskDueDate").value
