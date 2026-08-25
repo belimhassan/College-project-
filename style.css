@@ -582,3 +582,16 @@ body {
     }
 
 }
+ /* =========================================
+   TASK PRIORITY
+   ========================================= */
+
+.task-priority {
+    margin-left: 8px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    opacity: 0.9;
+}
