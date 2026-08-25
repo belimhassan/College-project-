@@ -536,6 +536,14 @@ function addTask() {
 let duration = durationSelect
     ? Number(durationSelect.value)
     : 5;
+     let prioritySelect =
+    document.getElementById("taskPriority");
+
+let priority =
+    prioritySelect
+        ? prioritySelect.value
+        : "medium";
+
 
 let newTask = {
 
@@ -545,9 +553,12 @@ let newTask = {
 
     completed: false,
 
-    duration: duration
+    duration: duration,
+
+    priority: priority
 
 };
+
 
    
 
