@@ -685,7 +685,23 @@ function displayTasks() {
 
             text.textContent =
                 task.text;
+            
+            let priority =
+    document.createElement("small");
 
+priority.textContent =
+    task.priority === "high"
+        ? " 🔴 High"
+        : task.priority === "low"
+        ? " 🟢 Low"
+        : " 🟡 Medium";
+
+priority.className =
+    "task-priority";
+
+leftSide.appendChild(
+    priority
+);
 
             leftSide.appendChild(
                 checkbox
