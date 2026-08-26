@@ -677,7 +677,7 @@ body {
    FEEDBACK FORM
    ========================================= */
 
-#contactForm {
+#feedbackForm {
     display: flex;
 
     flex-direction: column;
@@ -687,7 +687,7 @@ body {
     max-width: 600px;
 }
 
-#contactForm label {
+#feedbackForm label {
     margin-top: 8px;
 
     color: #374151;
@@ -697,9 +697,9 @@ body {
     font-weight: 600;
 }
 
-#contactForm input,
-#contactForm select,
-#contactForm textarea {
+#feedbackForm input,
+#feedbackForm select,
+#feedbackForm textarea {
     width: 100%;
 
     padding: 12px;
@@ -717,13 +717,13 @@ body {
     font-family: inherit;
 }
 
-#contactForm textarea {
+#feedbackForm textarea {{
     resize: vertical;
 }
 
-#contactForm input:focus,
-#contactForm select:focus,
-#contactForm textarea:focus {
+#feedbackForm input:focus,
+#feedbackForm select:focus,
+#feedbackForm textarea:focus { {
     border-color: #2563eb;
 }
 
