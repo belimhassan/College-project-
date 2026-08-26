@@ -26,6 +26,7 @@
         <a href="#about">About</a>
 
         <a href="#contact">Contact Us</a>
+        <a href="#feedback">Feedback</a>
 
     </div>
 
@@ -135,18 +136,61 @@
     </p>
 
 </section>
-
+ <!-- =========================
+     CONTACT US
+     ========================= -->
 
 <section id="contact" class="info-section">
 
-    <h2>Contact & Feedback</h2>
+    <h2>Contact Us</h2>
+
+    <p>
+        If you have any questions, need help, or want
+        to contact the developer, you can reach us here.
+    </p>
+
+    <div class="contact-details">
+
+        <div class="contact-item">
+            <strong>📧 Email</strong>
+            <a href="mailto:your-email@example.com">
+                Todolistweb@gmail.com
+            </a>
+        </div>
+
+        <div class="contact-item">
+            <strong>📱 Phone</strong>
+            <a href="tel:+911234567890">
+                +91 9328321686 
+            </a>
+        </div>
+
+        <div class="contact-item">
+            <strong>📍 Location</strong>
+            <span>
+                Ahmedabad, India
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEEDBACK
+     ========================= -->
+
+<section id="feedback" class="info-section">
+
+    <h2>Feedback & Report a Problem</h2>
 
     <p>
         Found a problem or have an idea to improve
         TaskFlow? Send your feedback to the developer.
     </p>
 
-    <form id="contactForm">
+    <form id="feedbackForm">
 
         <label for="feedbackType">
             What would you like to send?
@@ -177,36 +221,36 @@
         </select>
 
 
-        <label for="contactName">
+        <label for="feedbackName">
             Your Name
         </label>
 
         <input
             type="text"
-            id="contactName"
+            id="feedbackName"
             placeholder="Enter your name"
             required
         >
 
 
-        <label for="contactEmail">
+        <label for="feedbackEmail">
             Your Email
         </label>
 
         <input
             type="email"
-            id="contactEmail"
+            id="feedbackEmail"
             placeholder="Enter your email"
             required
         >
 
 
-        <label for="contactMessage">
+        <label for="feedbackMessage">
             Describe your problem or feedback
         </label>
 
         <textarea
-            id="contactMessage"
+            id="feedbackMessage"
             placeholder="Tell us what happened..."
             rows="6"
             required
@@ -223,6 +267,7 @@
     </form>
 
 </section>
+
 
     <script src="script.js"></script>
 
