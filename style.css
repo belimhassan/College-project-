@@ -1108,3 +1108,186 @@ body.dark-mode .footer {
 body.dark-mode #themeToggle:hover {
     background: #4b5563;
 }
+/* =========================================
+   PROFESSIONAL FOOTER
+   ========================================= */
+
+.site-footer {
+    max-width: 1000px;
+
+    margin: 25px auto 0;
+
+    padding: 40px 30px 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e1e5eb;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+/* FOOTER COLUMNS */
+
+.footer-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 30px;
+}
+
+
+/* COLUMN */
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* HEADINGS */
+
+.footer-column h3 {
+    margin: 0 0 8px;
+
+    color: #1e3a5f;
+
+    font-size: 17px;
+}
+
+
+/* TEXT */
+
+.footer-column p {
+    margin: 0;
+
+    color: #64748b;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* LINKS */
+
+.footer-column a {
+    color: #64748b;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+
+.footer-column a:hover {
+    color: #2563eb;
+}
+
+
+/* LOCATION */
+
+.footer-column span {
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* COPYRIGHT */
+
+.footer-bottom {
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+
+    text-align: center;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+body.dark-mode .site-footer {
+    background: #1f2937;
+
+    border-color: #374151;
+}
+
+
+body.dark-mode .footer-column h3 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .footer-column p,
+body.dark-mode .footer-column a,
+body.dark-mode .footer-column span {
+    color: #9ca3af;
+}
+
+
+body.dark-mode .footer-column a:hover {
+    color: #60a5fa;
+}
+
+
+body.dark-mode .footer-bottom {
+    border-color: #374151;
+}
+
+
+body.dark-mode .footer-bottom p {
+    color: #9ca3af;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .site-footer {
+        padding: 30px 20px 20px;
+    }
+
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 25px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+}
