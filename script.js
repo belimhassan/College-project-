@@ -1098,27 +1098,26 @@ function runTaskTimer(taskId) {
 
         if (remaining <= 0) {
 
-            if (timerElement) {
+    if (timerElement) {
 
-                timerElement.textContent =
-                    "⏰ Your time is over!";
-                let tasks = getTasks();
-            }
+        timerElement.textContent =
+            "⏰ Your time is over!";
 
-let task = tasks.find(function(item) {
-    return item.id === taskId;
-});
+    }
 
-if (task) {
+    let tasks = getTasks();
 
-    task.timeOver = true;
+    let task = tasks.find(function(item) {
+        return item.id === taskId;
+    });
 
-    saveTasks(tasks);
+    if (task) {
 
+        task.timeOver = true;
 
+        saveTasks(tasks);
 
-            }
-
+    }
 
             clearInterval(
                 timerIntervals[taskId]
