@@ -533,6 +533,16 @@ function addTask() {
   let durationSelect =
     document.getElementById("taskDuration");
 
+if (
+    !durationSelect ||
+    durationSelect.value === ""
+) {
+
+    alert("Please select task duration.");
+
+    return;
+}
+
 let duration = durationSelect
     ? Number(durationSelect.value)
     : 5;
@@ -545,6 +555,10 @@ let priority =
         : "medium";
 
 
+
+let dueDateInput =
+    document.getElementById("taskDueDate");
+
 let newTask = {
 
     id: Date.now(),
@@ -553,13 +567,15 @@ let newTask = {
 
     completed: false,
 
-    duration: duration,
+    duration: duration || 5,
 
     priority: priority,
 
-    dueDate:
-    document.getElementById("taskDueDate").value
-     timeOver: false
+    dueDate: dueDateInput
+        ? dueDateInput.value
+        : "",
+
+    timeOver: false
 
 };
 
