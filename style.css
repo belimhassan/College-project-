@@ -870,3 +870,213 @@ body {
 .contact-item span {
     color: #64748b;
 }
+/* =========================================
+   DARK / LIGHT MODE BUTTON
+   ========================================= */
+
+#themeToggle {
+    padding: 8px 14px;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#themeToggle:hover {
+    background: #f1f5f9;
+}
+
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+body.dark-mode {
+    background: #111827;
+
+    color: #e5e7eb;
+}
+
+
+/* Navbar */
+
+body.dark-mode .navbar {
+    background: #1f2937;
+
+    border-color: #374151;
+}
+
+
+/* Logo */
+
+body.dark-mode .nav-logo {
+    color: #ffffff;
+}
+
+
+/* Navbar Links */
+
+body.dark-mode .nav-links a {
+    color: #d1d5db;
+}
+
+body.dark-mode .nav-links a:hover {
+    color: #60a5fa;
+}
+
+
+/* Dashboard */
+
+body.dark-mode .dashboard {
+    background: #1f2937;
+
+    border-color: #374151;
+}
+
+
+/* Headings */
+
+body.dark-mode .dashboard h1,
+body.dark-mode .dashboard h2 {
+    color: #ffffff;
+}
+
+
+/* Welcome */
+
+body.dark-mode #welcomeMessage {
+    color: #9ca3af;
+}
+
+
+/* Stats */
+
+body.dark-mode .stat-card {
+    background: #111827;
+
+    border-color: #374151;
+}
+
+body.dark-mode .stat-card h3 {
+    color: #9ca3af;
+}
+
+body.dark-mode .stat-card p {
+    color: #60a5fa;
+}
+
+
+/* Inputs */
+
+body.dark-mode #taskInput,
+body.dark-mode #taskDuration,
+body.dark-mode #taskPriority,
+body.dark-mode #taskDueDate {
+    background: #111827;
+
+    color: #e5e7eb;
+
+    border-color: #4b5563;
+}
+
+
+/* Task Cards */
+
+body.dark-mode #taskList li {
+    background: #1f2937;
+
+    border-color: #374151;
+}
+
+body.dark-mode #taskList span {
+    color: #e5e7eb;
+}
+
+
+/* Timer */
+
+body.dark-mode .task-timer {
+    background: #172554;
+
+    color: #93c5fd;
+
+    border-color: #1e40af;
+}
+
+
+/* About / Contact / Feedback */
+
+body.dark-mode .info-section {
+    background: #1f2937;
+
+    border-color: #374151;
+}
+
+body.dark-mode .info-section h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .info-section p {
+    color: #9ca3af;
+}
+
+
+/* Contact Boxes */
+
+body.dark-mode .contact-item {
+    background: #111827;
+
+    border-color: #374151;
+}
+
+body.dark-mode .contact-item strong {
+    color: #ffffff;
+}
+
+body.dark-mode .contact-item span {
+    color: #9ca3af;
+}
+
+
+/* Feedback Form */
+
+body.dark-mode #feedbackForm label {
+    color: #d1d5db;
+}
+
+body.dark-mode #feedbackForm input,
+body.dark-mode #feedbackForm select,
+body.dark-mode #feedbackForm textarea {
+    background: #111827;
+
+    color: #e5e7eb;
+
+    border-color: #4b5563;
+}
+
+
+/* Theme Button in Dark Mode */
+
+body.dark-mode #themeToggle {
+    background: #374151;
+
+    color: #ffffff;
+
+    border-color: #4b5563;
+}
+
+body.dark-mode #themeToggle:hover {
+    background: #4b5563;
+}
