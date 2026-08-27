@@ -1076,6 +1076,34 @@ body.dark-mode #themeToggle {
 
     border-color: #4b5563;
 }
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.footer {
+    max-width: 1000px;
+
+    margin: 25px auto 0;
+
+    padding: 20px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+
+/* DARK MODE */
+
+body.dark-mode .footer {
+    color: #9ca3af;
+}
 
 body.dark-mode #themeToggle:hover {
     background: #4b5563;
