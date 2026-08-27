@@ -559,6 +559,7 @@ let newTask = {
 
     dueDate:
     document.getElementById("taskDueDate").value
+     timeOver: false
 
 };
 
@@ -835,8 +836,12 @@ taskList.appendChild(
     li
 );
 
+if (task.timeOver) {
 
-if (
+    timerElement.textContent =
+        "⏰ Time Over";
+
+} else if (
     localStorage.getItem(
         "taskTimer_" + task.id
     )
@@ -1081,6 +1086,20 @@ function runTaskTimer(taskId) {
 
                 timerElement.textContent =
                     "⏰ Your time is over!";
+                let tasks = getTasks();
+            }
+
+let task = tasks.find(function(item) {
+    return item.id === taskId;
+});
+
+if (task) {
+
+    task.timeOver = true;
+
+    saveTasks(tasks);
+
+
 
             }
 
