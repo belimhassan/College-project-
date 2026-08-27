@@ -717,13 +717,13 @@ body {
     font-family: inherit;
 }
 
-#feedbackForm textarea {{
+#feedbackForm textarea {
     resize: vertical;
 }
 
 #feedbackForm input:focus,
 #feedbackForm select:focus,
-#feedbackForm textarea:focus { {
+#feedbackForm textarea:focus { 
     border-color: #2563eb;
 }
 
