@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow - Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ffffff;
+
+            /* image load na ho to bhi text dikhe (fallback color + gradient) */
+            background-color: #1b1b3a;
+            background-image:
+                url("https://i.postimg.cc/WtRFFD2m/geometric-gradient-technology-background-23-2149110132.avif"),
+                linear-gradient(135deg, #0f2027, #2c1a4d);
+            background-size: cover, cover;
+            background-position: center;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
+
+            background: rgba(0, 0, 0, 0.45);
+            border: 3px solid #000000;
+            border-radius: 10px;
+        }
+
+        h1,
+        h2 {
+            margin: 0 0 30px;
+            text-align: center;
+            font-family: "Playfair Display", Georgia, serif;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        h2 {
+            font-size: 26px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 11px 12px;
+            margin-bottom: 14px;
+
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+
+            font-size: 15px;
+        }
+
+        input[type="submit"],
+        .btn-secondary {
+            width: 100%;
+            padding: 11px;
+            margin-top: 6px;
+
+            background: linear-gradient(to right, rgb(0, 195, 255), purple);
+            color: #ffffff;
+
+            border: none;
+            border-radius: 5px;
+
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #ffffff;
+        }
+
+        a {
+            color: #ffffff;
+        }
+
+        a:focus-visible,
+        input:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #00c3ff;
+            outline-offset: 2px;
+        }
+
+        .forgot {
+            display: block;
+            margin-bottom: 18px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .switch {
+            margin: 25px 0 0;
+            text-align: center;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="auth-card">
+
+        <!-- LOGIN -->
+        <form id="loginForm">
+
+            <h1>WELCOME BACK</h1>
+
+            <label class="sr-only" for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter username" autocomplete="username" required>
+
+            <label class="sr-only" for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password" autocomplete="current-password" required>
+
+            <a href="#" id="forgotLink" class="forgot">Forgot password?</a>
+
+            <input type="submit" value="Login">
+
+        </form>
+
+        <!-- FORGOT PASSWORD -->
+        <form id="resetForm" hidden>
+
+            <h2>Reset Password</h2>
+
+            <label class="sr-only" for="resetUsername">Username</label>
+            <input type="text" id="resetUsername" placeholder="Enter username" autocomplete="username" required>
+
+            <label class="sr-only" for="resetEmail">Email</label>
+            <input type="email" id="resetEmail" placeholder="Enter registered email" autocomplete="email" required>
+
+            <label class="sr-only" for="resetPassword">New password</label>
+            <input type="password" id="resetPassword" placeholder="New password" autocomplete="new-password" maxlength="32" required>
+
+            <label class="sr-only" for="resetConfirm">Confirm new password</label>
+            <input type="password" id="resetConfirm" placeholder="Confirm new password" autocomplete="new-password" maxlength="32" required>
+
+            <input type="submit" value="Change Password">
+
+            <button type="button" id="cancelReset" class="btn-secondary">Back to Login</button>
+
+        </form>
+
+        <p class="switch">
+            Don't have an account?
+            <a href="register.html">Sign up</a>
+        </p>
+
+    </main>
+
+    <script src="script.js" charset="UTF-8"></script>
+
+</body>
+
+</html>
