@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow - Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+
+            background:
+                url("https://i.postimg.cc/WtRFFD2m/geometric-gradient-technology-background-23-2149110132.avif")
+                center / cover no-repeat fixed;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 480px;
+
+            padding: 50px 40px;
+
+            background: transparent;
+
+            border: 5px solid black;
+
+            text-align: center;
+        }
+
+        .login-box h1 {
+            margin: 0 0 40px;
+
+            color: white;
+            text-align: center;
+
+            font-family: "Playfair Display", Georgia, serif;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+
+            margin-bottom: 18px;
+            padding: 10px;
+
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+
+            font-size: 15px;
+        }
+
+        .login-box input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+
+            background: linear-gradient(to right, rgb(0, 195, 255), purple);
+            color: white;
+
+            border: none;
+            border-radius: 2px;
+
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .signup-text {
+            margin: 25px 0 0;
+
+            color: white;
+            font-size: 16px;
+        }
+
+        .signup-text a {
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+
+            .login-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="loginForm">
+
+        <div class="login-box">
+
+            <h1>WELCOME BACK</h1>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter username"
+                aria-label="Username"
+                autocomplete="username"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                aria-label="Password"
+                autocomplete="current-password"
+                required
+            >
+
+            <input type="submit" value="Login">
+
+            <p class="signup-text">
+                Don't have an account?
+                <a href="register.html">Sign up</a>
+            </p>
+
+        </div>
+
+    </form>
+
+    <script src="script.js" charset="UTF-8"></script>
+
+</body>
+
+</html>
